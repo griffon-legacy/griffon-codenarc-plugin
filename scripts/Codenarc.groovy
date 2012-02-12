@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2010 the original author or authors.
+ * Copyright 2009-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,15 +37,15 @@ private void runCodenarc() {
 
     def codenarcConfig = buildConfig.codenarc
 
-    String reportName = codenarcConfig.reportName ?: 'CodeNarcReport.html'
-    String reportLocation = codenarcConfig.reportLocation ?: projectTargetDir
-    String reportType = codenarcConfig.reportType ?: 'html'
-    String reportTitle = codenarcConfig.reportTitle ?: ''
+    String reportName          = codenarcConfig.reportName ?: 'codenarc.html'
+    String reportLocation      = codenarcConfig.reportLocation ?: "${projectTargetDir}/test-reports/codenarc"
+    String reportType          = codenarcConfig.reportType ?: 'html'
+    String reportTitle         = codenarcConfig.reportTitle ?: "CodeNarc - $griffonAppName"
     int maxPriority1Violations = getConfigInt(codenarcConfig, 'maxPriority1Violations', Integer.MAX_VALUE)
     int maxPriority2Violations = getConfigInt(codenarcConfig, 'maxPriority2Violations', Integer.MAX_VALUE)
     int maxPriority3Violations = getConfigInt(codenarcConfig, 'maxPriority3Violations', Integer.MAX_VALUE)
-    String ruleSetFiles = codenarcConfig.ruleSetFiles ?: 'rulesets/basic.xml,rulesets/exceptions.xml,rulesets/imports.xml,rulesets/unused.xml'
-    List includes = codenarcConfigureIncludes(codenarcConfig)
+    String ruleSetFiles        = codenarcConfig.ruleSetFiles ?: 'rulesets/basic.xml,rulesets/exceptions.xml,rulesets/imports.xml,rulesets/unused.xml'
+    List includes              = codenarcConfigureIncludes(codenarcConfig)
 
     ant.echo(message: "[codenarc] Running CodeNarc ...")
     ant.mkdir(dir: projectTargetDir)   
