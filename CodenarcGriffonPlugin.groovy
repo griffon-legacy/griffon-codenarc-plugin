@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2012 the original author or authors.
+ * Copyright 2009-2013 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -19,9 +19,9 @@
  */
 class CodenarcGriffonPlugin {
     // the plugin version
-    String version = '0.8'
+    String version = '1.0.0'
     // the version or versions of Griffon the plugin is designed for
-    String griffonVersion = '1.0.0 > *'
+    String griffonVersion = '1.2.0 > *'
     // the other plugins this plugin depends on
     Map dependsOn = [:]
     // resources that are included in plugin packaging
@@ -51,21 +51,23 @@ class CodenarcGriffonPlugin {
     String title = 'CodeNarc plugin'
     // accepts Markdown syntax. See http://daringfireball.net/projects/markdown/ for details
     String description = '''
-The CodeNarc Plugin provides static code analysis for Groovy code. It uses the [codeNarc][1] library.
-It began as a port of the [Grails CodeNarc][2] plugin created by Burt Beckwith.
+The CodeNarc Plugin provides static code analysis for Groovy code. It uses the
+[CodeNarc][1] library. It began as a port of the [Grails CodeNarc][2] plugin
+created by Burt Beckwith.
 
 Usage
-----
-The plugin provides a script 'codenarc' that will analyze your code and write its results to an HTML file.
-Run the following command
+-----
+The plugin provides a script 'codenarc' that will analyze your code and write
+its results to an HTML file. Run the following command
 
-        griffon codenarc
+    griffon codenarc
 
 to perform the analysis.
 
 Configuration
 -------------
-The plugin requires no customization to run. By default it will analyze all Groovy files in
+The plugin requires no customization to run. By default it will analyze all
+Groovy files in
 
  * src/main
  * griffon-app/controllers
@@ -73,8 +75,9 @@ The plugin requires no customization to run. By default it will analyze all Groo
  * griffon-app/views
  * griffon-app/services
 
-You can restrict which folders are included or add extra ones. The following table lists settings that
-will be read from `griffon-app/conf/BuildConfig.groovy` and used if available:
+You can restrict which folders are included or add extra ones. The following
+table lists settings that will be read from `griffon-app/conf/BuildConfig.groovy`
+and used if available:
 
 | *Property*                      | *Default Value*                           | *Meaning*                                            |
 | ------------------------------- | ----------------------------------------- | ---------------------------------------------------- |
@@ -94,7 +97,8 @@ will be read from `griffon-app/conf/BuildConfig.groovy` and used if available:
 | codenarc.maxPriority2Violations | unlimited                                 | the maximum number of Priority 2 violations allowed  |
 | codenarc.maxPriority3Violations | unlimited                                 | the maximum number of Priority 3 violations allowed  |
 
-Lastly there's `codenarc.ruleSetFiles` which identifies the rules to be applied. The default value for this setting is
+Lastly there's `codenarc.ruleSetFiles` which identifies the rules to be applied.
+The default value for this setting is
 `'rulesets/basic.xml,rulesets/exceptions.xml,rulesets/imports.xml,rulesets/unused.xml'`
 
 [1]: http://codenarc.sourceforge.net

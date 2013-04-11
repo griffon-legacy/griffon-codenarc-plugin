@@ -1,50 +1,16 @@
 griffon.project.dependency.resolution = {
-    // implicit variables
-    // pluginName:     plugin's name
-    // pluginVersion:  plugin's version
-    // pluginDirPath:  plugin's install path
-    // griffonVersion: current Griffon version
-    // groovyVersion:  bundled groovy
-    // springVersion:  bundled Spring
-    // antVertsion:    bundled Ant
-    // slf4jVersion:   bundled Slf4j
-
-    // inherit Griffon' default dependencies
     inherits "global"
     log "warn"
     repositories {
         griffonHome()
         mavenCentral()
-
-        // uncomment the below to enable remote dependency resolution
-        // from public Maven repositories
-        //mavenLocal()
-        //mavenCentral()
-        //mavenRepo "http://snapshots.repository.codehaus.org"
-        //mavenRepo "http://repository.codehaus.org"
-        //mavenRepo "http://download.java.net/maven/2/"
-        //mavenRepo "http://repository.jboss.com/maven2/"
-
-        // pluginDirPath is only available when installed
-        // String basePath = pluginDirPath? "${pluginDirPath}/" : ''
-        // flatDir name: "${pluginName}LibDir", dirs: ["${basePath}lib"]
     }
     dependencies {
-        build 'org.codenarc:CodeNarc:0.16.1'
-    }
-}
-
-griffon {
-    doc {
-        logo = '<a href="http://griffon.codehaus.org" target="_blank"><img alt="The Griffon Framework" src="../img/griffon.png" border="0"/></a>'
-        sponsorLogo = "<br/>"
-        footer = "<br/><br/>Made with Griffon (@griffon.version@)"
+        build 'org.codenarc:CodeNarc:0.18.1'
     }
 }
 
 log4j = {
-    // Example of changing the log pattern for the default console
-    // appender:
     appenders {
         console name: 'stdout', layout: pattern(conversionPattern: '%d [%t] %-5p %c - %m%n')
     }
